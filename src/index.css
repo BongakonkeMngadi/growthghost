@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    font-family: 'Iosevka', 'JetBrains Mono', monospace;
+    background: #050200;
+    color: #fff7ed;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(251, 146, 60, 0.28) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: rgba(251, 146, 60, 0.3);
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: rgba(249, 115, 22, 0.35);
+    color: #fff7ed;
+  }
+}
+
+@layer components {
+  .ghost-glass {
+    background: linear-gradient(135deg, rgba(251, 146, 60, 0.09), rgba(255, 255, 255, 0.025));
+    backdrop-filter: blur(22px);
+    border: 1px solid rgba(251, 146, 60, 0.14);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.025), 0 24px 80px rgba(0, 0, 0, 0.45);
+  }
+
+  .ghost-card {
+    background: rgba(255, 247, 237, 0.035);
+    border: 1px solid rgba(251, 146, 60, 0.12);
+    border-radius: 1rem;
+    transition: all 0.2s ease;
+  }
+
+  .ghost-card:hover {
+    background: rgba(251, 146, 60, 0.065);
+    border-color: rgba(251, 146, 60, 0.28);
+  }
+
+  .ghost-input {
+    @apply w-full rounded-xl px-4 py-3 text-[13px] text-orange-50 transition-all;
+    background: rgba(255, 247, 237, 0.04);
+    border: 1px solid rgba(251, 146, 60, 0.13);
+    font-family: 'Iosevka', 'JetBrains Mono', monospace;
+  }
+
+  .ghost-input::placeholder {
+    color: rgba(255, 237, 213, 0.25);
+  }
+
+  .ghost-input:focus {
+    outline: none;
+    background: rgba(251, 146, 60, 0.08);
+    border-color: rgba(251, 146, 60, 0.48);
+    box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.08);
+  }
+
+  .ghost-button {
+    @apply rounded-xl px-5 py-3 text-[12px] font-bold transition-all active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed;
+    background: linear-gradient(135deg, #fb923c, #f97316 48%, #ea580c);
+    color: #170800;
+    box-shadow: 0 14px 40px rgba(249, 115, 22, 0.25);
+  }
+
+  .ghost-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 18px 50px rgba(249, 115, 22, 0.36);
+  }
+
+  .ghost-button-secondary {
+    @apply rounded-xl px-5 py-3 text-[12px] font-semibold transition-all;
+    background: rgba(255, 247, 237, 0.035);
+    border: 1px solid rgba(251, 146, 60, 0.16);
+    color: rgba(255, 237, 213, 0.72);
+  }
+
+  .ghost-button-secondary:hover {
+    background: rgba(251, 146, 60, 0.08);
+    color: #fed7aa;
+    border-color: rgba(251, 146, 60, 0.32);
+  }
+
+  .ghost-tag {
+    @apply inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-[10px];
+    background: rgba(251, 146, 60, 0.08);
+    border: 1px solid rgba(251, 146, 60, 0.14);
+    color: rgba(255, 237, 213, 0.52);
+  }
+}
