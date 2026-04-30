@@ -1,5 +1,5 @@
 {
-  "name": "growthghost",
+  "name": "vuka-browser",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.105.1",
     "@vitejs/plugin-react": "^4.2.0",
     "autoprefixer": "^10.4.0",
     "firebase": "^12.9.0",

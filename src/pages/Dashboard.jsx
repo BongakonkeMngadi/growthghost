@@ -6,26 +6,26 @@ import { FONT, GhostLogo, NoiseBackground } from '../components/Brand';
 import GhostLog from '../components/GhostLog';
 
 const FEED_LINES = [
-  { tag: 'OBSERVE', text: 'pricing page views are up 24% but checkout starts are flat', tone: 'dim' },
-  { tag: 'HYPOTHESIS', text: 'visitors do not trust the first pricing claim yet', tone: 'hot' },
-  { tag: 'ACT', text: 'drafted social proof module for pricing page', tone: 'normal' },
-  { tag: 'POST', text: 'published 4 founder-led clips to LinkedIn queue', tone: 'normal' },
-  { tag: 'MEASURE', text: 'LinkedIn campaign generating 2.1x better clicks than X', tone: 'win' },
-  { tag: 'QUEUE', text: 'waiting for approval: Reddit launch reply sequence', tone: 'hot' },
+  { tag: 'OBSERVE', text: 'pricing page views up 24%, checkout starts flat — trust gap detected', tone: 'dim' },
+  { tag: 'HYPOTHESIS', text: 'visitors need proof before the first pricing claim', tone: 'hot' },
+  { tag: 'SHIP', text: 'drafted pricing social-proof module with founder screenshots', tone: 'normal' },
+  { tag: 'POST', text: 'queued 4 founder-led clips and 2 comparison posts', tone: 'normal' },
+  { tag: 'MEASURE', text: 'LinkedIn traffic converting 2.1x better than X', tone: 'win' },
+  { tag: 'APPROVE', text: 'Reddit launch reply sprint waiting for human approval', tone: 'hot' },
 ];
 
 const METRICS = [
-  { label: 'Qualified traffic', value: '+18%', sub: 'last 7 days', icon: BarChart3 },
-  { label: 'Signup lift', value: '+7', sub: 'new accounts', icon: Target },
-  { label: 'Experiments', value: '12', sub: '3 currently live', icon: Flame },
-  { label: 'Actions shipped', value: '48', sub: 'this month', icon: Zap },
+  { label: 'Qualified traffic', value: '+24%', sub: 'last 7 days', icon: BarChart3 },
+  { label: 'Signup lift', value: '+31%', sub: 'trial intent', icon: Target },
+  { label: 'Experiments', value: '16', sub: '4 currently live', icon: Flame },
+  { label: 'Actions shipped', value: '72', sub: 'this month', icon: Zap },
 ];
 
 const EXPERIMENTS = [
-  { title: 'Founder pain headline test', status: 'running', metric: '+8.4% signup intent', risk: 'low' },
+  { title: 'Founder pain headline test', status: 'running', metric: '+12.8% signup intent', risk: 'low' },
   { title: 'LinkedIn proof thread series', status: 'running', metric: '2.1x click quality', risk: 'low' },
   { title: 'Reddit launch reply sprint', status: 'approval', metric: 'awaiting human', risk: 'medium' },
-  { title: 'Pricing page urgency banner', status: 'draft', metric: 'needs copy review', risk: 'medium' },
+  { title: 'Pricing page trust module', status: 'draft', metric: 'projected +9% checkout starts', risk: 'medium' },
 ];
 
 const TASKS = [
@@ -36,6 +36,12 @@ const TASKS = [
 ];
 
 const MODES = ['Suggest', 'Autopilot', 'Manual'];
+
+const FUNNEL_STAGES = [
+  { label: 'Visitors', value: '8.4k', lift: '+24%' },
+  { label: 'Trials', value: '612', lift: '+31%' },
+  { label: 'Pipeline', value: '$18.7k', lift: '+14%' },
+];
 
 function MetricCard({ metric }) {
   return (
@@ -109,13 +115,27 @@ export default function Dashboard() {
           <section className="mb-8 grid lg:grid-cols-[1fr_0.42fr] gap-5 items-stretch">
             <div className="ghost-glass rounded-[1.4rem] sm:rounded-[1.8rem] p-5 sm:p-7 overflow-hidden relative">
               <div className="absolute -right-24 -top-24 w-64 h-64 bg-orange-500/12 rounded-full blur-3xl" />
+              <div className="absolute left-12 bottom-0 w-72 h-24 bg-orange-300/10 rounded-full blur-3xl" />
               <div className="relative">
                 <div className="flex flex-wrap items-center gap-2 mb-5">
                   <span className="ghost-tag"><Ghost className="w-3 h-3" /> Welcome back, {displayName}</span>
                   <span className="ghost-tag"><ShieldCheck className="w-3 h-3" /> Human approval on medium risk</span>
+                  <span className="ghost-tag"><Sparkles className="w-3 h-3" /> Launch sprint active</span>
                 </div>
-                <h1 className="text-3xl min-[380px]:text-4xl sm:text-5xl font-black tracking-[-0.07em] leading-[0.95] max-w-3xl">Your ghost is hunting growth opportunities.</h1>
-                <p className="mt-4 max-w-2xl text-[13px] leading-7 text-orange-100/42">Tell it the outcome. It breaks the work into experiments, executes the safe moves, and reports back with proof.</p>
+                <h1 className="text-3xl min-[380px]:text-4xl sm:text-5xl font-black tracking-[-0.07em] leading-[0.95] max-w-3xl">Your ghost is shipping growth while you sleep.</h1>
+                <p className="mt-4 max-w-2xl text-[13px] leading-7 text-orange-100/42">Tell it the outcome. It finds the bottleneck, runs small experiments, publishes safe work, and reports the lift with proof.</p>
+
+                <div className="mt-6 grid min-[420px]:grid-cols-3 gap-3 max-w-3xl">
+                  {FUNNEL_STAGES.map((stage) => (
+                    <div key={stage.label} className="rounded-2xl border border-orange-300/12 bg-black/24 p-4">
+                      <p className="text-[9px] tracking-[0.22em] uppercase text-orange-200/30">{stage.label}</p>
+                      <div className="mt-2 flex items-end justify-between gap-3">
+                        <p className="text-2xl font-black tracking-[-0.06em] text-orange-50">{stage.value}</p>
+                        <span className="rounded-lg border border-emerald-300/20 bg-emerald-400/10 px-2 py-1 text-[10px] text-emerald-100/80">{stage.lift}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
 
                 <form onSubmit={handleIntentSubmit} className="mt-7 rounded-2xl border border-orange-300/14 bg-black/28 p-2">
                   <div className="flex flex-col md:flex-row gap-2">
@@ -129,7 +149,9 @@ export default function Dashboard() {
               </div>
             </div>
 
-            <div className="ghost-glass rounded-[1.4rem] sm:rounded-[1.8rem] p-5 sm:p-6">
+            <div className="ghost-glass rounded-[1.4rem] sm:rounded-[1.8rem] p-5 sm:p-6 relative overflow-hidden">
+              <div className="absolute -right-16 -bottom-16 w-44 h-44 rounded-full bg-orange-400/10 blur-3xl" />
+              <div className="relative">
               <p className="text-[10px] tracking-[0.3em] uppercase text-orange-200/35 mb-4">Control level</p>
               <div className="grid gap-2 mb-5">
                 {MODES.map((item) => (
@@ -145,6 +167,7 @@ export default function Dashboard() {
               <div className="rounded-2xl border border-orange-300/12 bg-black/25 p-4">
                 <p className="text-[9px] tracking-[0.22em] uppercase text-orange-200/30 mb-2">Current mission</p>
                 <p className="text-[12px] leading-6 text-orange-50/66">{submittedIntent}</p>
+              </div>
               </div>
             </div>
           </section>
@@ -201,7 +224,7 @@ export default function Dashboard() {
                   <CheckCircle2 className="w-5 h-5 text-orange-300 mt-0.5" />
                   <div>
                     <p className="text-[13px] leading-6 text-orange-50/76">{queued}</p>
-                    <p className="mt-2 text-[10px] leading-5 text-orange-100/35">GrowthGhost will turn this into a small, measurable experiment and report the outcome in the feed.</p>
+                    <p className="mt-2 text-[10px] leading-5 text-orange-100/35">Vuka Browser will turn this into a small, measurable experiment and report the outcome in the feed.</p>
                   </div>
                 </div>
               </div>

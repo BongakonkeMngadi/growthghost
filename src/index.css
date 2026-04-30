@@ -5,13 +5,13 @@
 @layer base {
   html, body, #root {
     font-family: 'Iosevka', 'JetBrains Mono', monospace;
-    background: #050200;
-    color: #fff7ed;
+    background: #000000;
+    color: #ffffff;
   }
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: rgba(251, 146, 60, 0.28) transparent;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
   }
 
   *::-webkit-scrollbar {
@@ -23,83 +23,118 @@
   }
 
   *::-webkit-scrollbar-thumb {
-    background: rgba(251, 146, 60, 0.3);
+    background: rgba(255, 255, 255, 0.12);
     border-radius: 2px;
   }
 
   ::selection {
-    background: rgba(249, 115, 22, 0.35);
-    color: #fff7ed;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
   }
 }
 
 @layer components {
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    transition: all 0.2s;
+  }
+
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
   .ghost-glass {
-    background: linear-gradient(135deg, rgba(251, 146, 60, 0.09), rgba(255, 255, 255, 0.025));
-    backdrop-filter: blur(22px);
-    border: 1px solid rgba(251, 146, 60, 0.14);
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.025), 0 24px 80px rgba(0, 0, 0, 0.45);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .ghost-card {
-    background: rgba(255, 247, 237, 0.035);
-    border: 1px solid rgba(251, 146, 60, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 1rem;
-    transition: all 0.2s ease;
+    transition: all 0.2s;
   }
 
   .ghost-card:hover {
-    background: rgba(251, 146, 60, 0.065);
-    border-color: rgba(251, 146, 60, 0.28);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.15);
   }
 
+  .input-field,
   .ghost-input {
-    @apply w-full rounded-xl px-4 py-3 text-[13px] text-orange-50 transition-all;
-    background: rgba(255, 247, 237, 0.04);
-    border: 1px solid rgba(251, 146, 60, 0.13);
+    @apply w-full rounded-xl px-4 py-3 text-[13px] text-white transition-all;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     font-family: 'Iosevka', 'JetBrains Mono', monospace;
   }
 
+  .input-field::placeholder,
   .ghost-input::placeholder {
-    color: rgba(255, 237, 213, 0.25);
+    color: rgba(255, 255, 255, 0.25);
   }
 
+  .input-field:focus,
   .ghost-input:focus {
     outline: none;
-    background: rgba(251, 146, 60, 0.08);
-    border-color: rgba(251, 146, 60, 0.48);
-    box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.08);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.3);
   }
 
+  .btn-primary,
   .ghost-button {
-    @apply rounded-xl px-5 py-3 text-[12px] font-bold transition-all active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed;
-    background: linear-gradient(135deg, #fb923c, #f97316 48%, #ea580c);
-    color: #170800;
-    box-shadow: 0 14px 40px rgba(249, 115, 22, 0.25);
+    @apply rounded-xl px-6 py-3 text-[12px] font-semibold transition-all active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed;
+    background: #ffffff;
+    color: #000000;
   }
 
+  .btn-primary:hover,
   .ghost-button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 18px 50px rgba(249, 115, 22, 0.36);
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.01);
   }
 
+  .btn-ghost,
   .ghost-button-secondary {
-    @apply rounded-xl px-5 py-3 text-[12px] font-semibold transition-all;
-    background: rgba(255, 247, 237, 0.035);
-    border: 1px solid rgba(251, 146, 60, 0.16);
-    color: rgba(255, 237, 213, 0.72);
+    @apply rounded-xl px-6 py-3 text-[12px] font-medium transition-all;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
   }
 
+  .btn-ghost:hover,
   .ghost-button-secondary:hover {
-    background: rgba(251, 146, 60, 0.08);
-    color: #fed7aa;
-    border-color: rgba(251, 146, 60, 0.32);
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.25);
   }
 
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-white/40 transition-all duration-150 hover:bg-white/5 hover:text-white/70 cursor-pointer;
+  }
+
+  .nav-item-active {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-white bg-white/8 border border-white/10 cursor-pointer;
+  }
+
+  .divider {
+    @apply border-t border-white/8;
+  }
+
+  .tag,
   .ghost-tag {
     @apply inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-[10px];
-    background: rgba(251, 146, 60, 0.08);
-    border: 1px solid rgba(251, 146, 60, 0.14);
-    color: rgba(255, 237, 213, 0.52);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.4);
   }
 }

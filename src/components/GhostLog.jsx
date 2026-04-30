@@ -3,14 +3,14 @@ import { motion } from 'framer-motion';
 import { FONT } from './Brand';
 
 const DEFAULT_LINES = [
-  { tag: 'OBSERVE', text: 'read analytics: signups flat, traffic rising', tone: 'dim' },
-  { tag: 'HYPOTHESIS', text: 'landing page promise is unclear for founders', tone: 'hot' },
-  { tag: 'ACT', text: 'tested 3 homepage headlines', tone: 'normal' },
-  { tag: 'POST', text: 'published 5 founder-focused posts', tone: 'normal' },
-  { tag: 'MEASURE', text: 'conversion rate increased +8.4%', tone: 'win' },
+  { tag: 'SCAN', text: 'found traffic moving, signups flat' },
+  { tag: 'IDEA', text: 'new headline test queued' },
+  { tag: 'SHIP', text: 'posted launch copy to X and LinkedIn' },
+  { tag: 'CHECK', text: 'measured clicks, paused weak angle' },
+  { tag: 'DONE', text: 'growth work logged with proof' },
 ];
 
-export default function GhostLog({ lines = DEFAULT_LINES, title = 'Ghost activity', minHeight = 'min-h-[190px]' }) {
+export default function GhostLog({ lines = DEFAULT_LINES, title = 'Agent running', minHeight = 'min-h-[160px]' }) {
   const [shown, setShown] = useState(0);
   const [cycle, setCycle] = useState(0);
 
@@ -22,30 +22,23 @@ export default function GhostLog({ lines = DEFAULT_LINES, title = 'Ghost activit
       setShown(i);
       if (i >= lines.length) {
         clearInterval(timer);
-        setTimeout(() => setCycle((v) => v + 1), 3600);
+        setTimeout(() => setCycle((v) => v + 1), 3000);
       }
-    }, 760);
+    }, 850);
     return () => clearInterval(timer);
   }, [cycle, lines.length]);
 
-  const toneClass = (tone) => {
-    if (tone === 'win') return 'text-emerald-300 border-emerald-300/20 bg-emerald-400/10';
-    if (tone === 'hot') return 'text-orange-200 border-orange-300/25 bg-orange-400/12';
-    if (tone === 'dim') return 'text-orange-100/35 border-orange-300/10 bg-orange-400/5';
-    return 'text-orange-100/55 border-orange-300/14 bg-orange-400/7';
-  };
-
   return (
-    <div className="rounded-2xl overflow-hidden border border-orange-300/14 bg-black/30 shadow-2xl" style={{ fontFamily: FONT }}>
-      <div className="flex items-center justify-between px-4 py-3 border-b border-orange-300/10 bg-orange-400/[0.035]">
+    <div className="rounded-xl overflow-hidden border border-white/10 bg-white/[0.03]" style={{ fontFamily: FONT }}>
+      <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
         <div className="flex gap-1.5">
-          <div className="w-2 h-2 rounded-full bg-orange-300/30" />
-          <div className="w-2 h-2 rounded-full bg-orange-300/20" />
-          <div className="w-2 h-2 rounded-full bg-orange-300/10" />
+          <div className="w-2 h-2 rounded-full bg-white/15" />
+          <div className="w-2 h-2 rounded-full bg-white/15" />
+          <div className="w-2 h-2 rounded-full bg-white/15" />
         </div>
-        <div className="flex items-center gap-2">
-          <motion.div className="w-1.5 h-1.5 rounded-full bg-orange-300" animate={{ opacity: [1, 0.2, 1] }} transition={{ duration: 1.4, repeat: Infinity }} />
-          <span className="text-[9px] text-orange-100/35 tracking-[0.26em] uppercase">{title}</span>
+        <div className="flex items-center gap-1.5">
+          <motion.div className="w-1.5 h-1.5 rounded-full bg-white/60" animate={{ opacity: [1, 0.2, 1] }} transition={{ duration: 1.5, repeat: Infinity }} />
+          <span className="text-[9px] text-white/30 tracking-[0.25em] uppercase">{title}</span>
         </div>
       </div>
       <div className={`p-4 space-y-2.5 ${minHeight}`}>
@@ -54,14 +47,14 @@ export default function GhostLog({ lines = DEFAULT_LINES, title = 'Ghost activit
             key={`${cycle}-${line.tag}-${i}`}
             initial={{ opacity: 0, x: -8 }}
             animate={shown > i ? { opacity: 1, x: 0 } : { opacity: 0, x: -8 }}
-            transition={{ duration: 0.28 }}
-            className="flex items-start gap-2.5 text-[10px]"
+            transition={{ duration: 0.3 }}
+            className="flex items-center gap-2.5 text-[10px]"
           >
-            <span className={`px-2 py-1 rounded-lg border tracking-[0.16em] shrink-0 ${toneClass(line.tone)}`}>{line.tag}</span>
-            <span className="min-w-0 leading-5 text-orange-50/45 sm:truncate">{line.text}</span>
+            <span className="px-1.5 py-0.5 rounded border border-white/15 bg-white/[0.06] text-white/50 tracking-widest shrink-0">{line.tag}</span>
+            <span className="text-white/30 truncate">{line.text}</span>
           </motion.div>
         ))}
-        {shown > 0 && shown < lines.length && <motion.span className="inline-block w-1.5 h-3.5 bg-orange-300/50 rounded-sm ml-1" animate={{ opacity: [1, 0] }} transition={{ duration: 0.6, repeat: Infinity }} />}
+        {shown > 0 && shown < lines.length && <motion.span className="inline-block w-1.5 h-3.5 bg-white/30 rounded-sm ml-1" animate={{ opacity: [1, 0] }} transition={{ duration: 0.6, repeat: Infinity }} />}
       </div>
     </div>
   );
