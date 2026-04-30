@@ -47,33 +47,33 @@ function MetricCard({ metric }) {
   return (
     <div className="ghost-card p-4">
       <div className="flex items-center justify-between mb-4">
-        <metric.icon className="w-4 h-4 text-orange-300" />
-        <span className="text-[9px] tracking-[0.2em] uppercase text-orange-200/28">{metric.sub}</span>
+        <metric.icon className="w-4 h-4 text-black" />
+        <span className="text-[9px] font-medium tracking-[0.2em] uppercase text-black">{metric.sub}</span>
       </div>
-      <p className="text-3xl font-black tracking-[-0.06em] text-orange-50">{metric.value}</p>
-      <p className="mt-1 text-[11px] text-orange-100/38">{metric.label}</p>
+      <p className="text-3xl font-black tracking-[-0.06em] text-black">{metric.value}</p>
+      <p className="mt-1 text-[11px] font-medium text-black">{metric.label}</p>
     </div>
   );
 }
 
 function ExperimentRow({ item }) {
   const statusStyles = {
-    running: 'text-emerald-300 bg-emerald-400/10 border-emerald-300/20',
-    approval: 'text-orange-200 bg-orange-400/10 border-orange-300/25',
-    draft: 'text-orange-100/40 bg-orange-50/[0.035] border-orange-300/12',
+    running: 'text-emerald-700 bg-emerald-700/10 border-emerald-700/20',
+    approval: 'text-black bg-black/[0.05] border-black/25',
+    draft: 'text-black bg-black/[0.035] border-black/12',
   };
 
   return (
-    <div className="flex items-start sm:items-center justify-between gap-3 sm:gap-4 rounded-2xl border border-orange-300/10 bg-black/22 p-4 hover:bg-orange-400/[0.045] transition-colors">
+    <div className="flex items-start sm:items-center justify-between gap-3 sm:gap-4 rounded-2xl border border-black/10 bg-white/22 p-4 hover:bg-black/[0.045] transition-colors">
       <div className="min-w-0">
         <div className="flex flex-wrap items-center gap-2 mb-1.5">
           <span className={`px-2 py-1 rounded-lg border text-[9px] uppercase tracking-[0.16em] ${statusStyles[item.status]}`}>{item.status}</span>
-          <span className="text-[9px] uppercase tracking-[0.16em] text-orange-100/25">{item.risk} risk</span>
+          <span className="text-[9px] uppercase tracking-[0.16em] text-black">{item.risk} risk</span>
         </div>
-        <p className="text-[12px] leading-5 text-orange-50/78 sm:truncate">{item.title}</p>
-        <p className="mt-1 text-[10px] text-orange-100/34">{item.metric}</p>
+        <p className="text-[12px] leading-5 text-black sm:truncate">{item.title}</p>
+        <p className="mt-1 text-[10px] font-medium text-black">{item.metric}</p>
       </div>
-      <ChevronRight className="w-4 h-4 text-orange-200/24 shrink-0" />
+      <ChevronRight className="w-4 h-4 text-black shrink-0" />
     </div>
   );
 }
@@ -94,16 +94,16 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050200] text-orange-50" style={{ fontFamily: FONT }}>
+    <div className="min-h-screen bg-white text-black" style={{ fontFamily: FONT }}>
       <NoiseBackground />
       <div className="relative z-10 min-h-screen">
-        <header className="sticky top-0 z-40 border-b border-orange-300/10 bg-[#050200]/88 backdrop-blur-xl">
+        <header className="sticky top-0 z-40 border-b border-black/10 bg-white/88 backdrop-blur-xl">
           <div className="max-w-7xl mx-auto px-3 sm:px-6 h-16 flex items-center justify-between gap-3">
             <GhostLogo size="w-9 h-9" compact />
             <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
-              <div className="hidden sm:flex items-center gap-2 rounded-xl border border-orange-300/12 bg-orange-400/[0.035] px-3 py-2">
-                <span className="w-2 h-2 rounded-full bg-orange-300 animate-pulse" />
-                <span className="text-[10px] text-orange-100/42">{mode} Mode</span>
+              <div className="hidden sm:flex items-center gap-2 rounded-xl border border-black/12 bg-black/[0.035] px-3 py-2">
+                <span className="w-2 h-2 rounded-full bg-black/60 animate-pulse" />
+                <span className="text-[10px] font-medium text-black">{mode} Mode</span>
               </div>
               <button className="ghost-button-secondary !px-2.5 sm:!px-3 !py-2 flex items-center gap-2"><BellRing className="w-4 h-4" /><span className="hidden sm:inline">Alerts</span></button>
               <button onClick={signOut} className="ghost-button-secondary !px-2.5 sm:!px-3 !py-2 flex items-center gap-2"><LogOut className="w-4 h-4" /><span className="hidden sm:inline">Exit</span></button>
@@ -114,8 +114,8 @@ export default function Dashboard() {
         <main className="max-w-7xl mx-auto px-3 sm:px-6 py-5 sm:py-10">
           <section className="mb-8 grid lg:grid-cols-[1fr_0.42fr] gap-5 items-stretch">
             <div className="ghost-glass rounded-[1.4rem] sm:rounded-[1.8rem] p-5 sm:p-7 overflow-hidden relative">
-              <div className="absolute -right-24 -top-24 w-64 h-64 bg-orange-500/12 rounded-full blur-3xl" />
-              <div className="absolute left-12 bottom-0 w-72 h-24 bg-orange-300/10 rounded-full blur-3xl" />
+              <div className="absolute -right-24 -top-24 w-64 h-64 bg-black/[0.04] rounded-full blur-3xl" />
+              <div className="absolute left-12 bottom-0 w-72 h-24 bg-black/10 rounded-full blur-3xl" />
               <div className="relative">
                 <div className="flex flex-wrap items-center gap-2 mb-5">
                   <span className="ghost-tag"><Ghost className="w-3 h-3" /> Welcome back, {displayName}</span>
@@ -123,25 +123,25 @@ export default function Dashboard() {
                   <span className="ghost-tag"><Sparkles className="w-3 h-3" /> Launch sprint active</span>
                 </div>
                 <h1 className="text-3xl min-[380px]:text-4xl sm:text-5xl font-black tracking-[-0.07em] leading-[0.95] max-w-3xl">Your ghost is shipping growth while you sleep.</h1>
-                <p className="mt-4 max-w-2xl text-[13px] leading-7 text-orange-100/42">Tell it the outcome. It finds the bottleneck, runs small experiments, publishes safe work, and reports the lift with proof.</p>
+                <p className="mt-4 max-w-2xl text-[13px] leading-7 text-black">Tell it the outcome. It finds the bottleneck, runs small experiments, publishes safe work, and reports the lift with proof.</p>
 
                 <div className="mt-6 grid min-[420px]:grid-cols-3 gap-3 max-w-3xl">
                   {FUNNEL_STAGES.map((stage) => (
-                    <div key={stage.label} className="rounded-2xl border border-orange-300/12 bg-black/24 p-4">
-                      <p className="text-[9px] tracking-[0.22em] uppercase text-orange-200/30">{stage.label}</p>
+                    <div key={stage.label} className="rounded-2xl border border-black/12 bg-white/24 p-4">
+                      <p className="text-[9px] font-medium tracking-[0.22em] uppercase text-black">{stage.label}</p>
                       <div className="mt-2 flex items-end justify-between gap-3">
-                        <p className="text-2xl font-black tracking-[-0.06em] text-orange-50">{stage.value}</p>
-                        <span className="rounded-lg border border-emerald-300/20 bg-emerald-400/10 px-2 py-1 text-[10px] text-emerald-100/80">{stage.lift}</span>
+                        <p className="text-2xl font-black tracking-[-0.06em] text-black">{stage.value}</p>
+                        <span className="rounded-lg border border-emerald-700/20 bg-emerald-700/10 px-2 py-1 text-[10px] text-emerald-700">{stage.lift}</span>
                       </div>
                     </div>
                   ))}
                 </div>
 
-                <form onSubmit={handleIntentSubmit} className="mt-7 rounded-2xl border border-orange-300/14 bg-black/28 p-2">
+                <form onSubmit={handleIntentSubmit} className="mt-7 rounded-2xl border border-black/14 bg-white/28 p-2">
                   <div className="flex flex-col md:flex-row gap-2">
-                    <div className="flex-1 px-4 py-3 rounded-xl bg-orange-50/[0.035] border border-orange-300/10">
-                      <p className="text-[9px] tracking-[0.28em] uppercase text-orange-200/32 mb-2">Intent Box</p>
-                      <textarea value={intent} onChange={(e) => setIntent(e.target.value)} rows={2} className="w-full resize-none bg-transparent text-[13px] leading-6 text-orange-50 focus:outline-none" placeholder="What growth outcome do you want?" />
+                    <div className="flex-1 px-4 py-3 rounded-xl bg-black/[0.035] border border-black/10">
+                      <p className="text-[9px] font-medium tracking-[0.28em] uppercase text-black mb-2">Intent Box</p>
+                      <textarea value={intent} onChange={(e) => setIntent(e.target.value)} rows={2} className="w-full resize-none bg-transparent text-[13px] leading-6 text-black focus:outline-none" placeholder="What growth outcome do you want?" />
                     </div>
                     <button className="ghost-button flex items-center justify-center gap-2 md:w-44"><Send className="w-4 h-4" /> Set intent</button>
                   </div>
@@ -150,23 +150,23 @@ export default function Dashboard() {
             </div>
 
             <div className="ghost-glass rounded-[1.4rem] sm:rounded-[1.8rem] p-5 sm:p-6 relative overflow-hidden">
-              <div className="absolute -right-16 -bottom-16 w-44 h-44 rounded-full bg-orange-400/10 blur-3xl" />
+              <div className="absolute -right-16 -bottom-16 w-44 h-44 rounded-full bg-black/[0.05] blur-3xl" />
               <div className="relative">
-              <p className="text-[10px] tracking-[0.3em] uppercase text-orange-200/35 mb-4">Control level</p>
+              <p className="text-[10px] font-medium tracking-[0.3em] uppercase text-black mb-4">Control level</p>
               <div className="grid gap-2 mb-5">
                 {MODES.map((item) => (
-                  <button key={item} onClick={() => setMode(item)} className={`text-left rounded-2xl border p-4 transition-all ${mode === item ? 'border-orange-300/36 bg-orange-400/10' : 'border-orange-300/10 bg-black/20 hover:bg-orange-400/[0.045]'}`}>
+                  <button key={item} onClick={() => setMode(item)} className={`text-left rounded-2xl border p-4 transition-all ${mode === item ? 'border-black/30 bg-black/[0.05]' : 'border-black/10 bg-white/20 hover:bg-black/[0.045]'}`}>
                     <div className="flex items-center justify-between">
-                      <span className="text-[12px] font-bold text-orange-50">{item} Mode</span>
-                      {mode === item ? <PlayCircle className="w-4 h-4 text-orange-300" /> : <PauseCircle className="w-4 h-4 text-orange-200/22" />}
+                      <span className="text-[12px] font-bold text-black">{item} Mode</span>
+                      {mode === item ? <PlayCircle className="w-4 h-4 text-black" /> : <PauseCircle className="w-4 h-4 text-black" />}
                     </div>
-                    <p className="mt-2 text-[10px] leading-5 text-orange-100/35">{item === 'Autopilot' ? 'Execute safe work silently.' : item === 'Suggest' ? 'Draft and ask before action.' : 'Only advise, never execute.'}</p>
+                    <p className="mt-2 text-[10px] leading-5 text-black">{item === 'Autopilot' ? 'Execute safe work silently.' : item === 'Suggest' ? 'Draft and ask before action.' : 'Only advise, never execute.'}</p>
                   </button>
                 ))}
               </div>
-              <div className="rounded-2xl border border-orange-300/12 bg-black/25 p-4">
-                <p className="text-[9px] tracking-[0.22em] uppercase text-orange-200/30 mb-2">Current mission</p>
-                <p className="text-[12px] leading-6 text-orange-50/66">{submittedIntent}</p>
+              <div className="rounded-2xl border border-black/12 bg-white/25 p-4">
+                <p className="text-[9px] font-medium tracking-[0.22em] uppercase text-black mb-2">Current mission</p>
+                <p className="text-[12px] leading-6 text-black">{submittedIntent}</p>
               </div>
               </div>
             </div>
@@ -180,7 +180,7 @@ export default function Dashboard() {
             <div className="ghost-glass rounded-[1.4rem] sm:rounded-[1.8rem] p-5 sm:p-6">
               <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
                 <div>
-                  <p className="text-[10px] tracking-[0.3em] uppercase text-orange-200/35 mb-1">Live feed</p>
+                  <p className="text-[10px] font-medium tracking-[0.3em] uppercase text-black mb-1">Live feed</p>
                   <h2 className="text-xl font-black tracking-[-0.04em]">What the ghost did</h2>
                 </div>
                 <span className="ghost-tag"><Bot className="w-3 h-3" /> running</span>
@@ -191,7 +191,7 @@ export default function Dashboard() {
             <div className="ghost-glass rounded-[1.4rem] sm:rounded-[1.8rem] p-5 sm:p-6">
               <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
                 <div>
-                  <p className="text-[10px] tracking-[0.3em] uppercase text-orange-200/35 mb-1">Experiments</p>
+                  <p className="text-[10px] font-medium tracking-[0.3em] uppercase text-black mb-1">Experiments</p>
                   <h2 className="text-xl font-black tracking-[-0.04em]">Growth loops in motion</h2>
                 </div>
                 <span className="ghost-tag"><Sparkles className="w-3 h-3" /> 3 active</span>
@@ -204,27 +204,27 @@ export default function Dashboard() {
 
           <section className="grid lg:grid-cols-[1fr_0.8fr] gap-5 pb-8">
             <div className="ghost-glass rounded-[1.4rem] sm:rounded-[1.8rem] p-5 sm:p-6">
-              <p className="text-[10px] tracking-[0.3em] uppercase text-orange-200/35 mb-4">Quick commands</p>
+              <p className="text-[10px] font-medium tracking-[0.3em] uppercase text-black mb-4">Quick commands</p>
               <div className="grid md:grid-cols-2 gap-3">
                 {TASKS.map((task) => (
-                  <button key={task} onClick={() => setQueued(task)} className={`text-left rounded-2xl border p-4 transition-all ${queued === task ? 'border-orange-300/35 bg-orange-400/10' : 'border-orange-300/10 bg-black/22 hover:bg-orange-400/[0.045]'}`}>
+                  <button key={task} onClick={() => setQueued(task)} className={`text-left rounded-2xl border p-4 transition-all ${queued === task ? 'border-black-300/35 bg-black/[0.05]' : 'border-black/10 bg-white/22 hover:bg-black/[0.045]'}`}>
                     <div className="flex items-start gap-3">
-                      <MousePointer2 className="w-4 h-4 text-orange-300 mt-0.5 shrink-0" />
-                      <span className="text-[12px] leading-6 text-orange-50/62">{task}</span>
+                      <MousePointer2 className="w-4 h-4 text-black mt-0.5 shrink-0" />
+                      <span className="text-[12px] leading-6 text-black">{task}</span>
                     </div>
                   </button>
                 ))}
               </div>
             </div>
 
-            <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="ghost-glass rounded-[1.4rem] sm:rounded-[1.8rem] p-5 sm:p-6">
-              <p className="text-[10px] tracking-[0.3em] uppercase text-orange-200/35 mb-4">Queued action</p>
-              <div className="rounded-2xl border border-orange-300/14 bg-black/28 p-5 mb-4">
+            <motion.div initial={{ y: 12 }} animate={{ y: 0 }} className="ghost-glass rounded-[1.4rem] sm:rounded-[1.8rem] p-5 sm:p-6">
+              <p className="text-[10px] font-medium tracking-[0.3em] uppercase text-black mb-4">Queued action</p>
+              <div className="rounded-2xl border border-black/14 bg-white/28 p-5 mb-4">
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-orange-300 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-black mt-0.5" />
                   <div>
-                    <p className="text-[13px] leading-6 text-orange-50/76">{queued}</p>
-                    <p className="mt-2 text-[10px] leading-5 text-orange-100/35">Vuka Browser will turn this into a small, measurable experiment and report the outcome in the feed.</p>
+                    <p className="text-[13px] leading-6 text-black">{queued}</p>
+                    <p className="mt-2 text-[10px] leading-5 text-black">Vuka Browser will turn this into a small, measurable experiment and report the outcome in the feed.</p>
                   </div>
                 </div>
               </div>

@@ -9,12 +9,12 @@ const FONT = "'Iosevka','JetBrains Mono',monospace";
 
 function LoadingScreen() {
   return (
-    <div className="min-h-screen bg-[#050200] flex items-center justify-center" style={{ fontFamily: FONT }}>
+    <div className="min-h-screen bg-white flex items-center justify-center" style={{ fontFamily: FONT }}>
       <div className="flex flex-col items-center gap-4">
         <div className="relative w-14 h-14 flex items-center justify-center">
           <img src="/logo_x.png" alt="Vuka Browser logo" className="h-full w-full object-contain" />
         </div>
-        <p className="text-orange-200/40 text-[10px] tracking-[0.32em] uppercase">Summoning ghost...</p>
+        <p className="text-black text-[10px] font-medium tracking-[0.32em] uppercase">Summoning ghost...</p>
       </div>
     </div>
   );
