@@ -169,7 +169,7 @@ export default function Landing() {
           <p className="text-[14px] sm:text-[15px] text-black leading-relaxed max-w-xl mx-auto mb-4">
             Connect your website, analytics, and social accounts. Set one growth goal. Vuka Browser watches your funnel, runs experiments, posts content, kills what fails, and shows you exactly what it did — in a live proof feed.
           </p>
-          <div className="text-[11px] sm:text-[13px] font-medium text-black h-6 mb-10 px-2 overflow-hidden">
+          <div className="text-[11px] sm:text-[13px] font-medium text-black mb-10 px-2">
             <TypewriterText texts={EXAMPLE_COMMANDS} speed={60} pause={2000} />
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
