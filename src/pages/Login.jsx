@@ -53,7 +53,7 @@ export default function Login() {
               Your agent kept working<br />
               <span className="text-black">while you were gone.</span>
             </h1>
-            <p className="text-[12px] font-medium text-black leading-relaxed">Sign in to see every experiment shipped, every campaign paused, and what Vuka Browser wants approval to run next.</p>
+            <p className="text-[12px] font-medium text-black leading-relaxed">Sign in to see every experiment shipped, every campaign paused, and what Handio wants approval to run next.</p>
           </motion.div>
 
           <motion.div initial={{ y: 10 }} animate={{ y: 0 }} transition={{ delay: 0.25 }}>

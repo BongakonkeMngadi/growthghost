@@ -63,7 +63,7 @@ export default function Signup() {
               A growth marketer<br />
               <span className="text-black">running 24 hours a day.</span>
             </h1>
-            <p className="text-[12px] font-medium text-black leading-relaxed max-w-xs">Connect your accounts, set your goal, and let Vuka Browser run experiments, post content, and report what moved.</p>
+            <p className="text-[12px] font-medium text-black leading-relaxed max-w-xs">Connect your accounts, set your goal, and let Handio run experiments, post content, and report what moved.</p>
           </motion.div>
 
           <motion.div initial={{ y: 10 }} animate={{ y: 0 }} transition={{ delay: 0.2 }} className="space-y-3">

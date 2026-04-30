@@ -10,11 +10,11 @@ export function GhostLogo({ size = 'w-10 h-10', compact = false }) {
         animate={{ y: [0, -4, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <img src="/logo_x.png" alt="Vuka Browser logo" className="h-full w-full object-contain opacity-90" />
+        <img src="/logo_x.png" alt="Handio logo" className="h-full w-full object-contain opacity-90" />
       </motion.div>
       {!compact && (
         <div className="min-w-0">
-          <div className="truncate text-[13px] sm:text-[14px] font-bold tracking-tight text-black">Vuka Browser</div>
+          <div className="truncate text-[13px] sm:text-[14px] font-bold tracking-tight text-black">Handio</div>
           <div className="hidden sm:block truncate text-[9px] font-medium tracking-[0.24em] uppercase text-black">Autonomous Growth Agent</div>
         </div>
       )}

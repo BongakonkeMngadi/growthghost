@@ -1,4 +1,4 @@
--- Vuka Browser Waitlist Setup for Supabase
+-- Handio Waitlist Setup for Supabase
 -- Run this in the Supabase SQL Editor (New Project -> SQL Editor -> New Query)
 -- IMPORTANT: Run this AFTER creating the table (or let it auto-create via this script)
 

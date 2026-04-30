@@ -224,7 +224,7 @@ export default function Dashboard() {
                   <CheckCircle2 className="w-5 h-5 text-black mt-0.5" />
                   <div>
                     <p className="text-[13px] leading-6 text-black">{queued}</p>
-                    <p className="mt-2 text-[10px] leading-5 text-black">Vuka Browser will turn this into a small, measurable experiment and report the outcome in the feed.</p>
+                    <p className="mt-2 text-[10px] leading-5 text-black">Handio will turn this into a small, measurable experiment and report the outcome in the feed.</p>
                   </div>
                 </div>
               </div>

@@ -127,7 +127,7 @@ export default function Landing() {
     try {
       await joinWaitlist(waitlist);
       setWaitlistStatus('success');
-      setWaitlistMessage('You are on the list. Vuka Browser will reach out when your early access spot opens.');
+      setWaitlistMessage('You are on the list. Handio will reach out when your early access spot opens.');
       setWaitlist({ name: '', email: '', company: '', goal: 'Get me more paying users' });
     } catch (err) {
       setWaitlistStatus('error');
@@ -147,7 +147,7 @@ export default function Landing() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
             <GhostLogo size="w-7 h-7" compact />
-            <span className="text-[13px] font-semibold tracking-tight text-black">Vuka Browser</span>
+            <span className="text-[13px] font-semibold tracking-tight text-black">Handio</span>
           </Link>
           <div className="flex items-center gap-2">
             <Link to="/login" className="px-4 py-2 rounded-lg text-[12px] font-medium text-black hover:text-black transition-colors">Sign in</Link>
@@ -167,7 +167,7 @@ export default function Landing() {
             <span className="bg-gradient-to-r from-black/50 to-black/25 bg-clip-text text-transparent">marketer.</span>
           </h1>
           <p className="text-[14px] sm:text-[15px] text-black leading-relaxed max-w-xl mx-auto mb-4">
-            Connect your website, analytics, and social accounts. Set one growth goal. Vuka Browser watches your funnel, runs experiments, posts content, kills what fails, and shows you exactly what it did — in a live proof feed.
+            Connect your website, analytics, and social accounts. Set one growth goal. Handio watches your funnel, runs experiments, posts content, kills what fails, and shows you exactly what it did — in a live proof feed.
           </p>
           <div className="text-[11px] sm:text-[13px] font-medium text-black mb-10 px-2">
             <TypewriterText texts={EXAMPLE_COMMANDS} speed={60} pause={2000} />
@@ -243,7 +243,7 @@ export default function Landing() {
         </div>
         <motion.div initial={{ y: 16 }} whileInView={{ y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="max-w-xl mx-auto relative z-10">
           <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">Get early access.</h2>
-          <p className="text-[14px] text-black mb-6 leading-relaxed">Vuka Browser is in private beta. Tell us your growth goal and we will invite you when your spot opens.</p>
+          <p className="text-[14px] text-black mb-6 leading-relaxed">Handio is in private beta. Tell us your growth goal and we will invite you when your spot opens.</p>
           <form onSubmit={handleWaitlistSubmit} className="space-y-3 text-left">
             <div className="grid sm:grid-cols-2 gap-3">
               <input value={waitlist.name} onChange={updateWaitlist('name')} className="input-field text-[13px]" placeholder="Name" required />
@@ -266,7 +266,7 @@ export default function Landing() {
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <GhostLogo size="w-5 h-5" compact />
-            <span className="text-[11px] font-medium text-black">Vuka Browser</span>
+            <span className="text-[11px] font-medium text-black">Handio</span>
           </div>
           <p className="text-[11px] font-medium text-black">The growth marketer that never clocks out.</p>
         </div>
