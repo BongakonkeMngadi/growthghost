@@ -3,7 +3,6 @@ import { useAuth } from './context/AuthContext';
 import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Dashboard from './pages/Dashboard';
 import Main from './pages/Screenshot';
 
 const FONT = "'Iosevka','JetBrains Mono',monospace";
@@ -29,9 +28,8 @@ function ProtectedRoute({ children }) {
 }
 
 function PublicRoute({ children }) {
-  const { user, loading } = useAuth();
+  const { loading } = useAuth();
   if (loading) return null;
-  if (user) return <Navigate to="/dashboard" replace />;
   return children;
 }
 
@@ -42,7 +40,7 @@ export default function App() {
       <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
       <Route path="/signup" element={<PublicRoute><Signup /></PublicRoute>} />
       <Route path="/main" element={<Main />} />
-      <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+      <Route path="/dashboard" element={<Navigate to="/#waitlist" replace />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
